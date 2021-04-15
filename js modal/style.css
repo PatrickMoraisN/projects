@@ -12,16 +12,11 @@ body{
   width: 100%;
 }
 
-
-.open, .modal-btn{
-
-}
-
 .modal-container{
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(rgb(0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0), 0.25);
+  background: rgba(0, 0, 0, 0.24);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -30,15 +25,39 @@ body{
 
   opacity: 0;
   pointer-events: none;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .modal{
-  background-color: white;
+  background-color: rgb(243, 243, 243);
+  color: rgb(31, 31, 31);
   width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 2px 15px black;
+  line-height: 22px;
+}
+
+.modal p, .modal h1, .modal-btn{
+  margin-top: 10px;
 }
 
 .show{
   opacity: 1;
   pointer-events: auto;
+}
+
+button {
+  background: linear-gradient(to top, rgb(0, 0, 151), rgb(115, 115, 243));
+  padding: 12px;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  border: 2px solid black;
+  cursor: pointer;
 }

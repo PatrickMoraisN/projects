@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav{
+  width: 100%;
+  height: 5rem;
+  background-color: rgb(78, 78, 78);
+  color: white;
+  position: fixed;
+}
+.trans{
+  display: none;
+}
+ul{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5rem;
+  list-style: none;
+  cursor: pointer;
+}
+a{
+  margin-right: 2rem;
+  line-height: 5rem;
+  font-size: 1.3rem;
+}
+main, .section1, .section2{
+  background-position: center;
+  background-size: cover;
+  min-height: 95vh;
+  width: 100%;
+}
+
+main{
+  background-image: url('./alvan-nee-T-0EW-SEbsE-unsplash.jpg');
+}
+
+.section1{
+  background-image: url('./anoir-chafik-2_3c4dIFYFU-unsplash.jpg');
+}
+
+.section2{
+  background-image: url('./jay-wennington-CdK2eYhWfQ0-unsplash.jpg');
+}

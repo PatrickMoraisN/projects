@@ -13,11 +13,16 @@ const checkValor = () => {
 }
 
 const showInfos = (totalAPagar, juros) => {
-  totalSpan.innerHTML = `R$${totalAPagar.toFixed(2)}`;
-  jurosSpan.innerHTML = `R$${juros.toFixed(2)}`;
+  totalSpan.innerHTML = `R$ ${totalAPagar.toFixed(2)}`;
+  jurosSpan.innerHTML = `R$ ${juros.toFixed(2)}`;
 }
 
-//FV = PV x (1+i)n
+/*FV = PV x (1+i)^n
+  FV - valor futuro
+  PV - valor inicial
+  i - % de juros
+  n - numero de parcelas
+*/
 
 const calcularJuros = (param) => {
   const valorInicial = parseFloat(valor.value);

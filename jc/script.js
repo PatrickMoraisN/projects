@@ -13,15 +13,15 @@ const checkValor = () => {
 }
 
 const showInfos = (totalAPagar, juros) => {
-  totalSpan.innerHTML = totalAPagar.toFixed(2);
-  jurosSpan.innerHTML = juros.toFixed(2);
+  totalSpan.innerHTML = `R$${totalAPagar.toFixed(2)}`;
+  jurosSpan.innerHTML = `R$${juros.toFixed(2)}`;
 }
 
 //FV = PV x (1+i)n
 
 const calcularJuros = (param) => {
   const valorInicial = parseFloat(valor.value);
-  const numeroDeParcelas = param - 1;
+  const numeroDeParcelas = param;
   const jurosPorcentagem = 5/100;
   const totalAPagar = valorInicial*[(1+jurosPorcentagem)**numeroDeParcelas]
   const juros = totalAPagar - valorInicial

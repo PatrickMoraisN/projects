@@ -6,6 +6,9 @@
   padding: 5px;
   text-align: center;
   font-size: 24px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .container{
@@ -18,17 +21,44 @@
   box-shadow:  0 0 5px black;
 }
 
-option[value="1"] , option[value="2"] , option[value="3"] {
+option {
  background-color: rgba(56, 56, 56, 0.685); 
 }
 
 #valor{
   height: 35px;
   font-size: 25px;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  margin-right: 10px;
 }
 
 .header>label{
   font-size: 25px;
+  margin-right: 15px;
+  color: rgb(243, 243, 243);
+}
+
+.valor-total , .juros{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  font-size: 30px;
+  color: rgb(243, 243, 243);
+}
+
+.resultado{
+  display: flex;
+  justify-content: center;
+}
+
+#total , #juros {
+  margin-left: 20px;
+  font-size: 30px;
+  transition: .3s;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.616);
+  text-shadow: 0 0 1px white;
 }
 
 button{
@@ -40,4 +70,9 @@ button{
   font-size: 20px;
   border-radius: 8px;
   cursor: pointer;
+  margin-left: 20px;
+}
+
+button:hover{
+  background: linear-gradient(rgb(0, 72, 228),rgb(75, 130, 248));
 }

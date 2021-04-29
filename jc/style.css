@@ -1,0 +1,43 @@
+
+
+#parcelas{
+  background-color: blue;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.container{
+  background-color: rgb(129, 129, 129);
+  width: 800px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 15.5%;
+  border-radius: 10px;
+  box-shadow:  0 0 5px black;
+}
+
+option[value="1"] , option[value="2"] , option[value="3"] {
+ background-color: rgba(56, 56, 56, 0.685); 
+}
+
+#valor{
+  height: 35px;
+  font-size: 25px;
+}
+
+.header>label{
+  font-size: 25px;
+}
+
+button{
+  padding: 12px;
+  background: linear-gradient(rgb(0, 62, 195),rgb(0, 81, 255));
+  color: white;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}

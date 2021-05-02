@@ -4,13 +4,7 @@ const button = document.querySelector('button');
 const totalSpan = document.querySelector('#total');
 const jurosSpan = document.querySelector('#juros');
 
-const checkValor = () => {
-  if(!valor.value){
-    alert('Digite um valor válido!')
-  } else {
-  checkParcelas();
-  }
-}
+const checkValor = () => !valor.value || valor.value[0] === '0' ? alert('Digite um valor válido!') : checkParcelas();
 
 const showInfos = (totalAPagar, juros) => {
   totalSpan.innerHTML = `R$ ${totalAPagar.toFixed(2)}`;
@@ -24,9 +18,9 @@ const showInfos = (totalAPagar, juros) => {
   n - numero de parcelas
 */
 
-const calcularJuros = (param) => {
+const calcularJuros = (parcelas) => {
   const valorInicial = parseFloat(valor.value);
-  const numeroDeParcelas = param;
+  const numeroDeParcelas = parcelas;
   const jurosPorcentagem = 5/100;
   const totalAPagar = valorInicial*[(1+jurosPorcentagem)**numeroDeParcelas]
   const juros = totalAPagar - valorInicial

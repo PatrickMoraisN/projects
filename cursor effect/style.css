@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+.cursor {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: solid 1px white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-property: transform, background;
+  transform-origin: 100% 100%;
+  z-index: -1;
+  backdrop-filter: sepia(100%);
+}
+
 nav {
   background-color: rgb(156, 84, 224);
   top: 0;
@@ -29,5 +45,6 @@ section {
   margin-top: 20px;
   width: 100%;
   min-height: 94vh;
-  background-color: rgb(182, 182, 182);
+  background: linear-gradient(rgba(0, 0, 0, 0.198), rgba(0, 0, 0, 0)), url("../../parallax\ site/imgs/switzleft");
+  background-size: cover;
 }

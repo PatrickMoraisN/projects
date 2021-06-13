@@ -13,7 +13,7 @@ body {
 .main-nav { 
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 10px;
   z-index: 10;
 }
 
@@ -71,7 +71,7 @@ body {
 
 .main-header {
   background-color: rgb(80, 119, 119);
-  width: 50px;
+  width: 80px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -113,5 +113,5 @@ body {
   height: 100vh;
   transition: 0.8s;
   z-index: 5;
-  background-color: rgba(0, 0, 0, 0.356);
+  background-color: rgba(0, 0, 0, 0.623);
 }

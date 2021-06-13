@@ -1,0 +1,117 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: rgb(236, 134, 116);
+}
+
+.main-nav { 
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.toggle-btn { 
+  cursor: pointer;
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-btn div {
+  height: 5px;
+  width: 25px;
+  background-color: white;
+  transition: 0.3s;
+  position: relative;
+}
+
+.toggle-btn div::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 4px;
+  width: 40px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.toggle-btn div::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  height: 4px;
+  width: 40px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.toggle-btn.open div {
+  background-color: transparent;
+}
+
+.toggle-btn.open div::after {
+  transform: rotate(-405deg) translate(20px, -4px);
+}
+
+.toggle-btn.open div::before {
+  transform: rotate(405deg) translateY(4px);
+}
+
+.main-header {
+  background-color: rgb(80, 119, 119);
+  width: 50px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+
+.main-header.open {
+  width: 350px;
+}
+
+.main-header ul {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.main-header ul li {
+  list-style: none;
+}
+
+.main-header ul li a {
+  color: white;
+  font-size: 1.4rem;
+}
+
+.main-header.open ul {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: all;
+}
+
+.overlay.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transition: 0.8s;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.356);
+}

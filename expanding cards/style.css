@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.panel {
+  width: 120px;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  height: 80vh;
+  cursor: pointer;
+  flex: 0.5;
+  position: relative;
+  transition: flex 0.5s ease-in;
+}
+
+.panel h3 {
+  position: absolute;
+  color: white;
+  left: 15px;
+  bottom: 15px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+}

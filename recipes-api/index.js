@@ -1,9 +1,9 @@
 /* index.js */
 const express = require('express');
 const app = express();
-// const cors = require('cors');
+const cors = require('cors');
 
-// app.use(cors());
+app.use(cors());
 
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
@@ -11,7 +11,7 @@ const recipes = [
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
 
-app.get('/recipes', function (req, res) {
+app.get('/recipes', async function (req, res) {
   res.json(recipes);
 });
 

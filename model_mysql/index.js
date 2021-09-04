@@ -3,10 +3,13 @@ const express = require("express");
 const Author = require("./models/Author");
 const app = express();
 const port = 3000;
-const STATUS_OK_CREATED = 201;
-const STATUS_ERROR_CREATE = 400;
-const STATUS_OK = 200;
-const STATUS_ERROR_NOTFOUND = 404;
+
+const {
+  STATUS_OK_CREATED,
+  STATUS_ERROR_CREATE,
+  STATUS_OK,
+  STATUS_ERROR_NOTFOUND
+} = require('./models/utils/status');
 
 const {
   messageDefault,
@@ -48,4 +51,4 @@ app.get("/authors/:id", async (req, res) => {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 // Req POST httpie
-// http POST :3000/authors first_name=Patrick middle_name=Morais last_name=Nunes
+// http POST :3000/authors first_name=Nome middle_name=Sobrenome last_name=OutroSobrenome

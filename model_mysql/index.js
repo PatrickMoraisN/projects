@@ -6,7 +6,7 @@ const messageDefault = {
   message: 'Hello, welcome to the default page!',
 }
 
-app.get('/', async (req, res) => {
+app.get('/', async (_req, res) => {
   res.status(200).json(messageDefault)
 });
 

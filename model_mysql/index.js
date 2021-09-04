@@ -2,9 +2,17 @@ const express = require('express');
 const Author = require('./models/Author');
 const app = express()
 const port = 3000
+const messageDefault = {
+  message: 'Hello, welcome to the default page!',
+}
+
+app.get('/', async (req, res) => {
+  res.status(200).json(messageDefault)
+});
 
 app.get('/authors', async (req, res) => {
   const authors = await Author.getAllAuthors();
   res.status(200).json(authors)
 });
+
 app.listen(port, () => console.log(`Example app listening on port port!`));

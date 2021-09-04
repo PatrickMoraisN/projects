@@ -16,6 +16,9 @@ const messageNotFound = {
 const messageInvalidData = {
   message: 'Invalid Data!',
 }
+const messageAuthorCreated = {
+  message: 'Author Created!',
+}
 
 app.use(bodyParser.json());
 
@@ -35,7 +38,7 @@ app.post('/authors', async (req, res) => {
 
   await Author.createAuthor(first_name, middle_name, last_name);
 
-  return res.status(STATUS_OK_CREATED).json({message: 'Author Created!'})
+  return res.status(STATUS_OK_CREATED).json(messageAuthorCreated)
 });
 
 app.get('/authors/:id', async (req, res) => {

@@ -10,7 +10,7 @@ app.get('/', async (req, res) => {
   res.status(200).json(messageDefault)
 });
 
-app.get('/authors', async (req, res) => {
+app.get('/authors', async (_req, res) => {
   const authors = await Author.getAllAuthors();
   res.status(200).json(authors)
 });

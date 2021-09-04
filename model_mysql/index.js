@@ -3,6 +3,7 @@ const express = require('express');
 const Author = require('./models/Author');
 const app = express();
 const port = 3000;
+const STATUS_OK_CREATED = 201;
 const STATUS_OK = 200;
 const STATUS_ERROR_NOTFOUND = 404;
 const messageDefault = {
@@ -10,6 +11,9 @@ const messageDefault = {
 }
 const messageNotFound = {
   message: 'Page Not Found',
+}
+const messageInvalidData = {
+  message: 'Invalid Data!',
 }
 
 app.use(bodyParser.json());
@@ -26,7 +30,7 @@ app.get('/authors', async (_req, res) => {
 app.post('/authors', async (req, res) => {
   const {first_name, middle_name, last_name} = req.body;
 
-  if(!Author.isValid(first_name, middle_name, last_name)) return res.status(400).json({message: 'invalid data'})
+  if(!Author.isValid(first_name, middle_name, last_name)) return res.status(400).json(messageInvalidData)
 
   await Author.createAuthor(first_name, middle_name, last_name);
 

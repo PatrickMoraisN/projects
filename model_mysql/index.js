@@ -15,4 +15,10 @@ app.get('/authors', async (_req, res) => {
   res.status(200).json(authors)
 });
 
+app.get('/authors/:id', async (req, res) => {
+  const { id } = req.params;
+  const authors = await Author.findAuthorById(id);
+  res.status(200).json(authors)
+});
+
 app.listen(port, () => console.log(`Example app listening on port port!`));

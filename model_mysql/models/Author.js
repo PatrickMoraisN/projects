@@ -34,4 +34,5 @@ const findAuthorById = async (id) => {
 
 module.exports = {
   getAllAuthors,
+  findAuthorById
 };

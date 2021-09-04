@@ -1,9 +1,10 @@
 const connection = require('./connection');
 
 const getAllAuthors = async () => {
-  const result = await connection.execute('SELECT id, first_name, middle_name, last_name FROM authors');
-
-  return result;
+  const [authors] = await connection.execute('SELECT id, first_name, middle_name, last_name FROM authors');
+  // Pega apenas o primeiro elemento do array
+  
+  return authors;
 }
 
 module.exports = {

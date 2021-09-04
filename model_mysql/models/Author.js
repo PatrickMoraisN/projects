@@ -19,6 +19,19 @@ const getAllAuthors = async () => {
   return result;
 }
 
+const findAuthorById = async (id) => {
+  const [authors] = await connection.execute(
+    'SELECT id, first_name, middle_name, last_name FROM authors WHERE id=?',
+    [id]
+  );
+
+  if (authors.length === 0) return null;
+
+  const result = authors.map(searialize)[0];
+
+  return result;
+}
+
 module.exports = {
   getAllAuthors,
 };

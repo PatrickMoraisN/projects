@@ -6,6 +6,6 @@ const getAllAuthors = async () => {
   return result;
 }
 
-module.exports = [
+module.exports = {
   getAllAuthors,
-];
+};

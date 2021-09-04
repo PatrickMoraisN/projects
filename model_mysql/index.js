@@ -12,20 +12,20 @@ const messageNotFound = {
 }
 
 app.get('/', async (_req, res) => {
-  res.status(200).json(messageDefault)
+  res.status(STATUS_OK).json(messageDefault)
 });
 
 app.get('/authors', async (_req, res) => {
   const authors = await Author.getAllAuthors();
-  res.status(200).json(authors)
+  res.status(STATUS_OK).json(authors)
 });
 
 app.get('/authors/:id', async (req, res) => {
   const { id } = req.params;
   const authors = await Author.findAuthorById(id);
 
-  if (!authors) return res.status(404).json(messageNotFound)
-  res.status(200).json(authors)
+  if (!authors) return res.status(STATUS_ERROR_NOTFOUND).json(messageNotFound)
+  res.status(STATUS_OK).json(authors)
 });
 
 app.listen(port, () => console.log(`Example app listening on port port!`));

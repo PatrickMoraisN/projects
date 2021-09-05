@@ -51,10 +51,9 @@ const isValid = (firstName, _middleName, lastName) => {
 }
 
 const createAuthor = async (firstName, middleName, lastName) =>  {
-  await connection.execute(
-    'INSERT INTO model_example.authors (first_name, middle_name, last_name) VALUES (?, ?, ?)',
-    [firstName, middleName, lastName],
-  )};
+  await connection()
+    .then((db) => db.collection('authors').insertOne({firstName, middleName, lastName}))
+}
 
 module.exports = {
   getAllAuthors,

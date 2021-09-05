@@ -12,11 +12,17 @@ const searialize = (author) => {
 }
 
 const getAllAuthors = async () => {
-  const [authors] = await connection.execute('SELECT id, first_name, middle_name, last_name FROM authors');
-  // Pega apenas o primeiro elemento do array
-
-  const result = authors.map(searialize);
-  return result;
+  return connection()
+    .then((db) => db.collection('authors').find().toArray())
+    .then((authors) => {
+      return authors.map((author) => {
+        const newAuthor = {
+          ...author,
+          id: author._id
+        }
+        return searialize(newAuthor);
+      })
+    })
 }
 
 const findAuthorById = async (id) => {

@@ -10,7 +10,7 @@ const searialize = (author) => {
     lastName: author.lastName,
     fullName
   }
-}
+};
 
 const getAllAuthors = async () => {
   return connection()
@@ -24,7 +24,7 @@ const getAllAuthors = async () => {
         return searialize(newAuthor);
       })
     })
-}
+};
 
 const findAuthorById = async (id) => {
   const authorData = await connection()
@@ -41,19 +41,19 @@ const findAuthorById = async (id) => {
     middleName,
     lastName
   });
-}
+};
 
 const isValid = (firstName, _middleName, lastName) => {
   if (!firstName || typeof firstName !== 'string') return false;
   if (!lastName || typeof lastName !== 'string') return false;
 
   return true;
-}
+};
 
 const createAuthor = async (firstName, middleName, lastName) =>  {
   await connection()
     .then((db) => db.collection('authors').insertOne({firstName, middleName, lastName}))
-}
+};
 
 module.exports = {
   getAllAuthors,

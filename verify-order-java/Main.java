@@ -52,12 +52,12 @@ public class Main {
 		return highestElem - lowestElem;
 	}
 
-  public static boolean verifySort(int[] a) {
-    if (a == null || a.length <= 1) {
+  public static boolean verifySort(int[] array) {
+    if (array == null || array.length <= 1) {
         return true;
     }
-    for (int i = 0; i < a.length - 1; i++) {
-        if (a[i] > a[i + 1]) {
+    for (int i = 0; i < array.length - 1; i += 1) {
+        if (array[i] > array[i + 1]) {
             return false;
         }
     }

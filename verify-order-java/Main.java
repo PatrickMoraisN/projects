@@ -50,17 +50,15 @@ public class Main {
 		return highestElem - lowestElem;
 	}
 
-  public static boolean verifySort(int[] vetor) {
-		boolean response = false;
-		int defaultValue = vetor[0];
-		
-		for (int i = 0; i < vetor.length; i+= 1) {
-			if (vetor[i] > defaultValue) {
-				response = true;
-			} else {
-				response = false;
-			}
-		}
-		return response;
-	}
+  public static boolean verifySort(int[] a) {
+    if (a == null || a.length <= 1) {
+        return true;
+    }
+    for (int i = 0; i < a.length - 1; i++) {
+        if (a[i] > a[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+  }
 }

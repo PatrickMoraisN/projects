@@ -34,4 +34,19 @@ public class Main {
 		System.out.println("O vetor está em ordem decrescente!");
 		sc.close();
 	}
+
+  public static int diffNumbers(int[] vetor) {
+		int highestElem = vetor[0];
+		int lowestElem = vetor[0];
+		
+		for (int i = 0; i < vetor.length; i += 1) {
+			if(vetor[i] >= highestElem) {
+				highestElem = vetor[i]; 
+			}
+			if (vetor[i] <= lowestElem) {
+				lowestElem = vetor[i];
+			}
+		}
+		return highestElem - lowestElem;
+	}
 }

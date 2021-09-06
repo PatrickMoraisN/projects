@@ -49,4 +49,18 @@ public class Main {
 		}
 		return highestElem - lowestElem;
 	}
+
+  public static boolean verifySort(int[] vetor) {
+		boolean response = false;
+		int defaultValue = vetor[0];
+		
+		for (int i = 0; i < vetor.length; i+= 1) {
+			if (vetor[i] > defaultValue) {
+				response = true;
+			} else {
+				response = false;
+			}
+		}
+		return response;
+	}
 }

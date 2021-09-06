@@ -23,15 +23,17 @@ public class Main {
 		
 		int diff = diffNumbers(vetor);
 				
-		System.out.println("O módulo da diferença entre maior e menor número do vetor é " + diff);
+		System.out.println("O módulo da diferença entre maior e menor número do vetor é: " + diff);
 		
 		boolean isSorted = verifySort(vetor);
 		if (isSorted) {
+      System.out.println(isSorted);
 			System.out.println("O vetor está em ordem crescente!");
 			sc.close();
 			return;
 		}
-		System.out.println("O vetor está em ordem decrescente!");
+    System.out.println(isSorted);
+		System.out.println("O vetor não está em ordem crescente!");
 		sc.close();
 	}
 

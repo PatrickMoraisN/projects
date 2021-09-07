@@ -6,6 +6,7 @@
 
 body {
   overflow-x: hidden;
+  background: rgb(44, 44, 44);
 }
 
 .container {
@@ -59,4 +60,25 @@ body {
   top: 60%;
   transform-origin: top left;
   transform: rotate(90deg);
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 30px;
+
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: white;
+  margin: 20px 0;
+  transform: translate(-100%);
+  transition: 0.5s;
 }

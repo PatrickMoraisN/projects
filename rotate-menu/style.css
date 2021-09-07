@@ -15,6 +15,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   padding: 50px;
+  background-color: white;
 }
 
 .container.show-nav {
@@ -81,4 +82,17 @@ nav ul li {
   margin: 20px 0;
   transform: translate(-100%);
   transition: 0.5s;
+}
+
+nav ul li + li {
+  margin-left: 15px;
+}
+
+nav ul li + li + {
+  margin-left: 30px;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
 }

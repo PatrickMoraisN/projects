@@ -9,4 +9,45 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: grey;
+}
+
+.search {
+  position: relative;
+  height: 50px;
+}
+
+.search input {
+  background-color: white;
+  border: none;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 50px;
+  transition: 0.5s;
+}
+
+.search button {
+  background-color: white;
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: 0.5s;
+  font-size: 18px;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+
+.search.active input {
+  width: 200px;
+}
+
+.search.active button {
+  transform: translateX(198px);
 }

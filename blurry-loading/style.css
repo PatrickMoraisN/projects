@@ -12,7 +12,7 @@ section {
   position: absolute;
   z-index: 1;
   height: 100vh;
-  filter: blur(0px);
+  filter: blur(100px);
 }
 
 .loading-text {

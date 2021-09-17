@@ -1,0 +1,26 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+section {
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+  filter: blur(0px);
+}
+
+.loading-text {
+  background-color: rgba(122, 122, 122, 0.438);
+  padding: 3px 28px;
+  border-radius: 8px;
+  font-size: 3rem;
+  color: rgb(240, 240, 240);
+  position: absolute;
+  z-index: 3;
+}

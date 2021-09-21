@@ -7,3 +7,11 @@ db.marcas.insertMany([
 ], {w: "majority", wtimetout: 200});
 
 db.marcas.find().pretty();
+
+---
+
+db.books.find({categories: 'Java'});
+
+db.books.find({pageCount: {$lt: 100}});
+
+db.books.find({pageCount: {$gt: 300}, categories: 'Microsoft'});

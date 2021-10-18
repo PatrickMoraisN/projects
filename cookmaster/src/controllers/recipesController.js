@@ -20,8 +20,7 @@ const createRecipe = async (req, res) => {
 
 const getAllRecipes = async (_req, res) => {
   const recipe = await recipesService.getAllRecipes();
-
-  res.status(200).json(recipe);
+  return res.status(200).json(recipe);
 };
 
 const getRecipeById = async (req, res) => {

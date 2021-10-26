@@ -11,9 +11,14 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
+// Routes import
+const notesRoutes = require('./routes/notes');
+
 app.get('/', (_req, res) => {
   return res.render('home')
 })
+
+app.use('/notes', notesRoutes)
 
 app.listen(port, () => {
   console.log(`Online at port ${port}`)

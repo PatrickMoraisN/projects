@@ -28,6 +28,15 @@ router.post('/delete', function(req, res) {
   return res.redirect(301, '/')
 })
 
+router.get('/edit/:id', async function (req, res) {
+  const { id } = req.params;
+
+  const note = await db.getDb().db().collection('notes')
+    .findOne({ _id: ObjectId(id) });
+
+  return res.render('notes/edit', { note })
+})
+
 router.get('/:id', async function (req, res) {
   const { id } = req.params;
   const notes = await db.getDb().db().collection('notes')

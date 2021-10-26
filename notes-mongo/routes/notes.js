@@ -17,4 +17,15 @@ router.post('/', function(req, res) {
   return res.redirect(301, '/')
 })
 
+router.post('/delete', function(req, res) {
+  const { id } = req.body;
+
+  db.getDb()
+    .db()
+    .collection('notes')
+    .deleteOne({ _id: ObjectId(id) });
+  
+  return res.redirect(301, '/')
+})
+
 module.exports = router;

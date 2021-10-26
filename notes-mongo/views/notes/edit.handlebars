@@ -1,6 +1,6 @@
 <a href="/">Voltar</a>
 <h2>Edite sua nota:</h2>
-<form action="/notes" method="post">
+<form action="/notes/update" method="post">
   <div class="mb-3">
     <label for="title" class="form-label">Título:</label>
     <input type="text" class="form-control" id="title" name="title" value={{note.title}}>
@@ -9,5 +9,6 @@
     <label for="description" class="form-label">Descrição:</label>
     <textarea name="description" class="form-control" id="description">{{note.description}}</textarea>
   </div>
+  <input type="hidden" name="id" value="{{note._id}}">
   <button type="submit" class="btn btn-primary">Atualizar nota</button>
 </form>

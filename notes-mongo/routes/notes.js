@@ -37,6 +37,15 @@ router.get('/edit/:id', async function (req, res) {
   return res.render('notes/edit', { note })
 })
 
+router.post('/update', async function (req, res) {
+  const { id, title, description } = req.body;
+
+  await db.getDb().db().collection('notes')
+    .updateOne({ _id: ObjectId(id) }, { $set: { title, description } });
+
+  return res.redirect(301, '/')
+})
+
 router.get('/:id', async function (req, res) {
   const { id } = req.params;
   const notes = await db.getDb().db().collection('notes')

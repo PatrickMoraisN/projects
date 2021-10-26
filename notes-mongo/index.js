@@ -13,13 +13,17 @@ const db = require('./db/connection');
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
+
+// BodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // Routes import
 const notesRoutes = require('./routes/notes');
 
-app.get('/', (_req, res) => {
-  return res.render('home')
+app.get('/', async (_req, res) => {
+  const notes = await db.getDb().db().collection('notes')
+    .find({}).toArray();
+    return res.render('home', { notes })
 })
 
 app.use('/notes', notesRoutes)

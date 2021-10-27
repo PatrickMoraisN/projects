@@ -19,9 +19,14 @@ io.on('connection', (socket) => {
   })
 
   socket.on('message', (msg) => {
-    console.log(msg)
+    io.emit('serverMessage', {message: msg })
   })
+
+  socket.emit('welcome', 'Seja bem vindo ao TrybeChat!')
+
+  socket.broadcast.emit('serverMessage', {message: 'Oba, alguem se conectou' })
 })
+
 
 app.get('/', (_req, res) => {
   return res.sendFile(__dirname + '/index.html');

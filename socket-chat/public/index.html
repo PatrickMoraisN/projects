@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="./css/styles.css" rel="stylesheet" type="text/html"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"
+    integrity="sha512-zN6KYOtONNTOGXz0RkWX2EpavN9VdIs+2w+To+fhciFv83YA9maUpi2lzZWrOfKXdFIZZomWufBznkyHi3a8oQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    ></script>
+    <title>Socket Chat</title>
+  </head>
+  <body>
+    <style>
+      body {
+        width: 100%;
+      }
+      #container {
+        margin: 0 auto;
+        background: rgb(245, 245, 245);
+        width: 280px;
+        height: 60vh;
+        border: 2px solid black;
+        border-radius: 12px;
+        padding: 8px;
+        position: relative;
+      }
+
+      #container form {
+        position: absolute;
+        bottom: 50px;
+        right: 48px;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      li:nth-child(2n+1) {
+        background: rgb(209, 209, 209);
+      }
+    </style>
+    <div id="container">
+      <ul id="mensagens"></ul>
+      <form action="">
+        <input type="text" id="mensagemInput" autocomplete="off" /><button>
+          Send
+        </button>
+      </form>
+
+      <script>
+        const socket = io();
+        const form = document.querySelector("form");
+        const inputMessage = document.querySelector("#mensagemInput");
+
+        const createMessage = (message) => {
+          const messagesUl = document.querySelector("#mensagens");
+          const newMessage = document.createElement("li");
+          newMessage.innerText = message;
+          messagesUl.appendChild(newMessage);
+        };
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          socket.emit("message", inputMessage.value);
+          inputMessage.value = "";
+          return false;
+        });
+
+        socket.on("welcome", (message) => createMessage(message));
+        socket.on("serverMessage", ({ message }) => createMessage(message));
+      </script>
+    </div>
+  </body>
+</html>

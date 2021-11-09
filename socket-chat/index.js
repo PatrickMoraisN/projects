@@ -27,9 +27,8 @@ io.on('connection', (socket) => {
   socket.broadcast.emit('serverMessage', {message: 'Oba, alguem se conectou' })
 })
 
-
 app.get('/', (_req, res) => {
-  return res.sendFile(__dirname + '/index.html');
+  return res.sendFile(__dirname + '/public/index.html');
 });
 
 http.listen(3000, () => {

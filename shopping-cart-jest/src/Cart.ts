@@ -1,3 +1,4 @@
+import { remove, find } from 'lodash';
 
 type ItemProps = {
   quantity: number;
@@ -19,10 +20,18 @@ export default class Cart {
   }
 
   add(item: ItemProps) {
+    const itemToFind = { product: item.product };
+
+    if (find(this.items, itemToFind)) {
+      remove(this.items, itemToFind);
+    }
     this.items.push(item);
   }
 
-  remove(product: ProductProps) {}
+  remove(product: ProductProps) {
+    const itemToFind = { product };
+    remove(this.items, itemToFind);
+  }
 
   summary() {}
 

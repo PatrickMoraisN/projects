@@ -1,7 +1,4 @@
 import Cart from './Cart';
-import Dinero from 'dinero.js';
-
-const Money = Dinero;
 
 describe('Cart', () => {
   let cart;

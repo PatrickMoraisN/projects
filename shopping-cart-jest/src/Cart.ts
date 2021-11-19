@@ -35,7 +35,12 @@ export default class Cart {
 
   summary() {}
 
-  checkout() {}
+  checkout() {
+    return {
+      total: this.getTotal(),
+      items: this.items,
+    }
+  }
 }
 
 const cart = new Cart();

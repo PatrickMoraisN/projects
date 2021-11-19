@@ -12,6 +12,8 @@
   "dependencies": {
     "@types/jest": "^27.0.2",
     "@types/lodash": "^4.14.177",
+    "dinero": "^1.0.1",
+    "dinero.js": "^1.9.1",
     "jest": "^27.3.1",
     "lodash": "^4.17.21",
     "typescript": "^4.5.2"
@@ -20,6 +22,7 @@
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-typescript": "^7.16.0",
+    "@types/dinero.js": "^1.9.0",
     "babel-jest": "^27.3.1"
   }
 }

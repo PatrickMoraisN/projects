@@ -33,11 +33,18 @@ export default class Cart {
     remove(this.items, itemToFind);
   }
 
-  summary() {}
-
-  checkout() {
+  summary() {
     const total = this.getTotal();
     const items = this.items;
+  
+    return {
+      total,
+      items,
+    }
+  }
+
+  checkout() {
+    const { total, items } = this.summary();
 
     this.items = [];
   

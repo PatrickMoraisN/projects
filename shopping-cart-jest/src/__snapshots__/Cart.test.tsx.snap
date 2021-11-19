@@ -65,3 +65,25 @@ Object {
   "total": 171552,
 }
 `;
+
+exports[`Cart summary() should return an object when summary() is called 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "product": Object {
+        "price": 35388,
+        "title": "Nike run - men",
+      },
+      "quantity": 3,
+    },
+    Object {
+      "product": Object {
+        "price": 65388,
+        "title": "Nike run - women",
+      },
+      "quantity": 1,
+    },
+  ],
+  "total": 171552,
+}
+`;

@@ -89,5 +89,38 @@ describe('Cart', () => {
       expect(cart.getTotal()).toBe(0);
     });
   });
+
+  describe('summary()', () => {
+    it('should return an object when summary() is called', () => {
+      cart.add({
+        product,
+        quantity: 3,
+      });
+
+      cart.add({
+        product: product2,
+        quantity: 1,
+      });
+
+      expect(cart.summary()).toMatchSnapshot();
+    });
+
+    it('should return the total', () => {
+      cart.add({
+        product,
+        quantity: 3,
+      });
+
+      cart.add({
+        product: product2,
+        quantity: 1,
+      });
+
+      cart.summary();
+
+      expect(cart.getTotal()).not.toBe(0);
+    });
+  })
+  
   
 })

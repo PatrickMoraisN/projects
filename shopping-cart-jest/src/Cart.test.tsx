@@ -137,6 +137,20 @@ describe('Cart', () => {
 
       expect(cart.getTotal()).toBe(74315)
     });
+
+    it('should apply percentage discount for even quantities', () => {
+      const condition = {
+        quantity: 2,
+      };
+
+      cart.add({
+        product,
+        condition,
+        quantity: 4,
+      });
+
+      expect(cart.getTotal()).toBe(70776)
+    })
   })
   
 })

@@ -1,0 +1,81 @@
+{
+// Configurações da fonte JetBrains Mono
+"editor.fontFamily": "JetBrains Mono",
+"editor.fontLigatures": true,
+"editor.fontSize": 16,
+"editor.lineHeight": 26,
+"editor.semanticHighlighting.enabled": false,
+
+// Demais configurações
+"workbench.colorTheme": "Omni",
+"workbench.iconTheme": "material-icon-theme",
+"workbench.startupEditor": "newUntitledFile",
+
+"explorer.compactFolders": false,
+"editor.renderLineHighlight": "gutter",
+"workbench.editor.labelFormat": "short",
+"extensions.ignoreRecommendations": true,
+
+"javascript.updateImportsOnFileMove.enabled": "never",
+"typescript.updateImportsOnFileMove.enabled": "never",
+
+"breadcrumbs.enabled": true,
+"editor.parameterHints.enabled": false,
+"explorer.confirmDragAndDrop": false,
+"explorer.confirmDelete": false,
+
+"editor.rulers": [80, 120],
+  
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+},
+
+"emmet.syntaxProfiles": { "javascript": "jsx" },
+"emmet.includeLanguages": { "javascript": "javascriptreact" },
+
+"javascript.suggest.autoImports": true,
+"typescript.suggest.autoImports": true,
+"editor.tabSize": 2,
+"[javascriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[html]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"files.exclude": {
+  "**/.classpath": true,
+  "**/.project": true,
+  "**/.settings": true,
+  "**/.factorypath": true
+},
+"[typescript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+
+//eslint
+"eslint.autoFixOnSave": true,
+"eslint.validate": [
+  {
+    "language": "javascript",
+    "autoFix": true
+  },
+  {
+    "language": "javascriptreact",
+    "autofix": true
+  },
+  {
+    "language": "typescript",
+    "autofix": true
+  },
+  {
+    "language": "typescriptreact",
+    "autofix": true
+  },
+],
+}

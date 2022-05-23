@@ -9,6 +9,9 @@ const app = express();
 
 const connection = require('./database/connection');
 
+// Models
+const { Thought } = require('./models');
+
 // Engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');

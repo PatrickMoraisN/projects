@@ -9,6 +9,7 @@ const app = express();
 
 const connection = require('./database/connection');
 
+// Engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({
 }))
 app.use(express.json());
 
+// Session
 app.use(
   session({
     name: "session",
@@ -36,6 +38,19 @@ app.use(
   }),
 )
 
+// Flash Messages
+app.use(flash());
+
+// Public path
+app.use(express.static('public'))
+
+// Set Session to res
+app.use((req, res, next) => {
+  if(req.session.userId) {
+    res.locals.session = req.session;
+  }
+  next();
+})
 
 const PORT = process.env.PORT || 3000
 

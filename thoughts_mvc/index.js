@@ -13,6 +13,9 @@ const { sequelize } = require('./database/connection');
 const { Thought } = require('./models');
 const { User } = require('./models');
 
+const ThoughtController = require('./controllers/ThoughtController');
+const router = require('./routes/thoughtRoutes');
+
 // Engine
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -55,6 +58,9 @@ app.use((req, res, next) => {
   }
   next();
 })
+
+app.use('/thoughts', router)
+app.get('/', ThoughtController.showThoughts)
 
 const PORT = process.env.PORT || 3000
 

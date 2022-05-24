@@ -1,5 +1,5 @@
 const express = require('express');
-const expresshbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const flash = require('express-flash');
@@ -7,13 +7,14 @@ require('dotenv').config();
 
 const app = express();
 
-const connection = require('./database/connection');
+const { sequelize } = require('./database/connection');
 
 // Models
 const { Thought } = require('./models');
+const { User } = require('./models');
 
 // Engine
-app.engine('handlebars', exphbs());
+app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 
 app.use(express.urlencoded({
@@ -57,7 +58,7 @@ app.use((req, res, next) => {
 
 const PORT = process.env.PORT || 3000
 
-connection
+sequelize
   .sync()
   .then(() => {
     console.log(`==== Server running on port ${PORT} ====`)

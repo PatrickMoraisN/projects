@@ -61,7 +61,16 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
 });
 
 app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
+  const { id } = request.params;
+  const { username } = request.headers;
+  const user = users.find(user => user.username === username);
+  const todo = user.todos.find(todo => todo.id === id);
+  if(!todo) {
+    return response.status(404).json({error: 'Todo not found'});
+  }
+  const index = user.todos.indexOf(todo);
+  user.todos.splice(index, 1);
+  return response.status(204).send();
 });
 
 module.exports = app;

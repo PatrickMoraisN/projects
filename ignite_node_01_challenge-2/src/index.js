@@ -20,16 +20,19 @@ function checksExistsUserAccount(request, response, next) {
 }
 
 function checksCreateTodosUserAvailability(request, response, next) {
-  const { user } = request.user;
+  const { user } = request;
   if (user.todos.length < 10 || user.pro) {
     return next();
   }
-  return response.status(400).json({error: 'User has reached the maximum number of todos'});
+  return response.status(403).json({error: 'User has reached the maximum number of todos'});
 }
 
 function checksTodoExists(request, response, next) {
   const { username } = request.headers;
   const { id } = request.params;
+  if (!validate(id)) {
+    return response.status(400).json({error: 'Invalid todo ID'});
+  }
   const user = users.find(user => user.username === username);
   if (!user) {
     return response.status(404).json({error: 'User not found'})
@@ -38,12 +41,19 @@ function checksTodoExists(request, response, next) {
   if (!todo) {
     return response.status(404).json({error: 'Todo not found'})
   }
+  request.user = user;
   request.todo = todo;
   return next();
 }
 
 function findUserById(request, response, next) {
-  // Complete aqui
+  const { id } = request.params;
+  const user = users.find(user => user.id === id);
+  if (!user) {
+    return response.status(404).json({error: 'User not found'})
+  }
+  request.user = user;
+  return next();
 }
 
 app.post('/users', (request, response) => {

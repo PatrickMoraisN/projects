@@ -8,13 +8,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// const users = [];
+const users = [];
 
 function checksExistsUserAccount(request, response, next) {
-  // Complete aqui
+  const {name} = request.body;
+  const user = users.find(user => user.name === name);
+  if(!user) {
+    return response.status(400).json({error: 'User not found'});
+  }
+  return next();
 }
 
-app.post('/users', (request, response) => {
+app.post('/users', checksExistsUserAccount,(request, response) => {
   const { name, username } = request.body;
   const newUser = {
     id: uuidv4(),
@@ -22,6 +27,7 @@ app.post('/users', (request, response) => {
     username,
     todos: [],
   }
+  users.push(newUser);
   return response.status(201).json(newUser);
 });
 

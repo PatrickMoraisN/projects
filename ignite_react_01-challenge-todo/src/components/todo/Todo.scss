@@ -1,0 +1,33 @@
+.todo_item {
+  &+& {
+    margin-top: 20px;
+  }
+
+  display: flex;
+  width: 100%;
+  min-height: 72px;
+  justify-content: space-between;
+  background: #262626;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 16px;
+
+  border: 1px solid #333333;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .todo_completed {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+}

@@ -20,7 +20,11 @@ function checksExistsUserAccount(request, response, next) {
 }
 
 function checksCreateTodosUserAvailability(request, response, next) {
-  // Complete aqui
+  const { user } = request.user;
+  if (user.todos.length < 10 || user.pro) {
+    return next();
+  }
+  return response.status(400).json({error: 'User has reached the maximum number of todos'});
 }
 
 function checksTodoExists(request, response, next) {

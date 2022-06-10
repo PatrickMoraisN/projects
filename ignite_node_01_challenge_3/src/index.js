@@ -32,15 +32,15 @@ app.put("/repositories/:id", (request, response) => {
   const { id } = request.params;
   const updatedRepository = request.body;
 
-  repositoryIndex = repositories.findindex(repository => repository.id === id);
+  const repository = repositories.find(repository => repository.id === id);
 
-  if (repositoryIndex < 0) {
+  if (!repository) {
     return response.status(404).json({ error: "Repository not found" });
   }
 
-  const repository = { ...repositories[repositoryIndex], ...updatedRepository };
+  const newRepository = { ...repository, ...updatedRepository };
 
-  repositories[repositoryIndex] = repository;
+  repositories.splice(repositories.indexOf(repository), 1, newRepository);
 
   return response.json(repository);
 });

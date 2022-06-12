@@ -4,6 +4,6 @@ const router = express.Router();
 const ThoughtController = require('../controllers/ThoughtController');
 
 
-router.get('/thoughts', ThoughtController.showThoughts);
+router.get('/', ThoughtController.showThoughts);
 
 module.exports = router;
